@@ -2,6 +2,7 @@
 
 ## Main tech stack:
 
+- Typescript and Nodejs
 - Express.js
 - Apollo
 - Nexusjs
