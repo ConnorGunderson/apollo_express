@@ -6,6 +6,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "rootDir": ".",
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",

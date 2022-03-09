@@ -12,7 +12,6 @@
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@prettier:recommended",
     "prettier"
   ],
   "rules": {
@@ -26,8 +25,8 @@
       "webpack": {
         "config": {
           "resolve": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"],
-            "modules": ["src", "node_modules"]
+            "extensions": [".ts", ".tsx"],
+            "modules": ["pages", "node_modules"]
           }
         }
       }
