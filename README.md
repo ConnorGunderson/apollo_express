@@ -1,5 +1,7 @@
 # apollo-express by Connor Gunderson
 
+**Application made to portray competetency in full-stack web development**
+
 ## Main tech stack:
 
 - Typescript and Nodejs
