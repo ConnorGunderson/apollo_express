@@ -1,6 +1,6 @@
-## apollo-express by Connor Gunderson
+# apollo-express by Connor Gunderson
 
-# Main tech stack:
+## Main tech stack:
 
 - Express.js
 - Apollo
