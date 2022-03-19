@@ -3,8 +3,8 @@
  * Do not make changes to this file directly
  */
 
-
-
+import type * as prisma from ".prisma/client/index"
+import type { Context } from "./../graphql/prisma"
 
 
 
@@ -30,12 +30,7 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Query: {};
-  User: { // root type
-    email?: string | null; // String
-    id: string; // ID!
-    name?: string | null; // String
-    phoneNumber?: number | null; // Int
-  }
+  User: prisma.User;
 }
 
 export interface NexusGenInterfaces {
@@ -52,13 +47,14 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnu
 export interface NexusGenFieldTypes {
   Query: { // field return type
     User: NexusGenRootTypes['User'] | null; // User
-    Users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
+    users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
   }
   User: { // field return type
     email: string | null; // String
     id: string; // ID!
     name: string | null; // String
-    phoneNumber: number | null; // Int
+    phoneNumber: string | null; // String
+    status: string | null; // String
   }
   Node: { // field return type
     id: string; // ID!
@@ -68,13 +64,14 @@ export interface NexusGenFieldTypes {
 export interface NexusGenFieldTypeNames {
   Query: { // field return type name
     User: 'User'
-    Users: 'User'
+    users: 'User'
   }
   User: { // field return type name
     email: 'String'
     id: 'ID'
     name: 'String'
-    phoneNumber: 'Int'
+    phoneNumber: 'String'
+    status: 'String'
   }
   Node: { // field return type name
     id: 'ID'
@@ -87,7 +84,7 @@ export interface NexusGenArgTypes {
       name?: string | null; // String
       status?: NexusGenEnums['StatusEnum'] | null; // StatusEnum
     }
-    Users: { // args
+    users: { // args
       ids?: Array<number | null> | null; // [Int]
     }
   }
@@ -115,7 +112,7 @@ export type NexusGenUnionNames = never;
 
 export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
 
-export type NexusGenAbstractsUsingStrategyResolveType = never;
+export type NexusGenAbstractsUsingStrategyResolveType = "Node";
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {
@@ -126,7 +123,7 @@ export type NexusGenFeaturesConfig = {
 }
 
 export interface NexusGenTypes {
-  context: any;
+  context: Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars;

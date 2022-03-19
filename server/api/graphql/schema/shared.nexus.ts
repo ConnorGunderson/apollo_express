@@ -5,6 +5,7 @@ export const Node = interfaceType({
   definition(t) {
     t.nonNull.id('id', { description: 'Unique identifier for the resource' })
   },
+  resolveType: () => null,
 })
 
 export const StatusEnum = enumType({

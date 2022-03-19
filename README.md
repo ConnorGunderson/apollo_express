@@ -1,4 +1,4 @@
-# apollo-express by Connor Gunderson
+# Graphql powered commerce application by Connor Gunderson
 
 **Application made to portray competetency in full-stack web development**
 
