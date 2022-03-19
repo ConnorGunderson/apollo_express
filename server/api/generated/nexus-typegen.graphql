@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-
+import type * as prisma from ".prisma/client/index"
 import type { Context } from "./../graphql/prisma"
 
 
@@ -30,12 +30,7 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Query: {};
-  User: { // root type
-    email?: string | null; // String
-    id: string; // ID!
-    name?: string | null; // String
-    phoneNumber?: number | null; // Int
-  }
+  User: prisma.User;
 }
 
 export interface NexusGenInterfaces {
@@ -51,14 +46,15 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnu
 
 export interface NexusGenFieldTypes {
   Query: { // field return type
-    user: NexusGenRootTypes['User'] | null; // User
-    users: Array<Array<NexusGenRootTypes['User'] | null> | null> | null; // [[User]]
+    User: NexusGenRootTypes['User'] | null; // User
+    users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
   }
   User: { // field return type
     email: string | null; // String
     id: string; // ID!
     name: string | null; // String
-    phoneNumber: number | null; // Int
+    phoneNumber: string | null; // String
+    status: string | null; // String
   }
   Node: { // field return type
     id: string; // ID!
@@ -67,14 +63,15 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   Query: { // field return type name
-    user: 'User'
+    User: 'User'
     users: 'User'
   }
   User: { // field return type name
     email: 'String'
     id: 'ID'
     name: 'String'
-    phoneNumber: 'Int'
+    phoneNumber: 'String'
+    status: 'String'
   }
   Node: { // field return type name
     id: 'ID'
@@ -83,7 +80,7 @@ export interface NexusGenFieldTypeNames {
 
 export interface NexusGenArgTypes {
   Query: {
-    user: { // args
+    User: { // args
       name?: string | null; // String
       status?: NexusGenEnums['StatusEnum'] | null; // StatusEnum
     }

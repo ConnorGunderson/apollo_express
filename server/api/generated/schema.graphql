@@ -8,8 +8,8 @@ interface Node {
 }
 
 type Query {
-  user(name: String, status: StatusEnum): User
-  users(ids: [Int]): [[User]]
+  User(name: String, status: StatusEnum): User
+  users(ids: [Int]): [User]
 }
 
 enum StatusEnum {
@@ -23,5 +23,6 @@ type User implements Node {
   """Unique identifier for the resource"""
   id: ID!
   name: String
-  phoneNumber: Int
+  phoneNumber: String
+  status: String
 }

@@ -13,6 +13,6 @@ export const schema = makeSchema({
     export: 'Context',
   },
   sourceTypes: {
-    modules: [{ module: '@prisma/client', alias: 'PrismaClient' }],
+    modules: [{ module: '.prisma/client/index.d.ts', alias: 'prisma' }],
   },
 })
