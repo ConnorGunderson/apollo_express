@@ -2,20 +2,18 @@ import { ApolloServer, Config, ExpressContext } from 'apollo-server-express'
 import express from 'express'
 import { authRouter } from '../routes'
 import { schema } from './nexus'
+import { context } from './prisma'
 
 require('dotenv').config()
 
-export const startServer = async (
-  typeDefs?: Config<ExpressContext>['typeDefs'],
-  resolvers?: Config<ExpressContext>['resolvers']
-) => {
+export const startServer = async () => {
   const app = express()
 
-  // // Init Apollo
-  const server = new ApolloServer({ typeDefs, resolvers, schema })
+  // init Apollo
+  const server = new ApolloServer({ schema, context })
   await server.start()
 
-  // // wrap express server around Apollo
+  // wrap express server around Apollo
   server.applyMiddleware({ app })
 
   // custom routes and application config

@@ -1,4 +1,13 @@
-import { arg, intArg, list, objectType, queryType, stringArg } from 'nexus'
+import {
+  arg,
+  intArg,
+  list,
+  mutationType,
+  objectType,
+  queryType,
+  stringArg,
+} from 'nexus'
+import { Context } from '../prisma'
 import { Node } from './shared.nexus'
 
 export const User = objectType({
@@ -6,25 +15,34 @@ export const User = objectType({
   definition(t) {
     t.implements(Node)
     t.string('name')
-    t.int('phoneNumber')
     t.string('email')
+    t.int('phoneNumber')
   },
 })
 
-export const Query = queryType({
+export const Queries = queryType({
   definition(t) {
-    t.field('User', {
+    t.field('user', {
       type: User,
       args: {
         name: stringArg(),
         status: arg({ type: 'StatusEnum' }),
       },
     })
-    t.field('Users', {
+    t.list.field('users', {
       type: list(User),
       args: {
         ids: list(intArg()),
       },
+      resolve(_, { ids }, ctx) {
+        return ctx.prisma.user.findMany({})
+      },
     })
   },
 })
+
+// export const Mutations = mutationType({
+//   definition(t) {
+//     t.field('User', {})
+//   },
+// })

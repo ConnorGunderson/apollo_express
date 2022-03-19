@@ -8,8 +8,8 @@ interface Node {
 }
 
 type Query {
-  User(name: String, status: StatusEnum): User
-  Users(ids: [Int]): [User]
+  user(name: String, status: StatusEnum): User
+  users(ids: [Int]): [[User]]
 }
 
 enum StatusEnum {
