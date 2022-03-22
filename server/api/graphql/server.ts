@@ -1,15 +1,17 @@
+import { PrismaClient } from '@prisma/client'
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import { authRouter } from '../routes'
 import { schema } from './nexus'
-import { context } from './prisma'
 
 require('dotenv').config()
+
+const prisma = new PrismaClient()
 
 export const startServer = async () => {
   const app = express()
 
-  const server = new ApolloServer({ schema, context })
+  const server = new ApolloServer({ schema, context: () => ({ prisma }) })
   await server.start()
 
   server.applyMiddleware({ app })

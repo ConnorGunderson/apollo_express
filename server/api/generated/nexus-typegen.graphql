@@ -3,8 +3,8 @@
  * Do not make changes to this file directly
  */
 
-import type * as prisma from ".prisma/client/index"
-import type { Context } from "./../graphql/prisma"
+import type * as PrismaClient from ".prisma/client"
+import type { Context } from "./../graphql/context"
 
 
 
@@ -30,11 +30,11 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Query: {};
-  User: prisma.User;
+  Users: PrismaClient.Users;
 }
 
 export interface NexusGenInterfaces {
-  Node: NexusGenRootTypes['User'];
+  Node: NexusGenRootTypes['Users'];
 }
 
 export interface NexusGenUnions {
@@ -46,15 +46,12 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnu
 
 export interface NexusGenFieldTypes {
   Query: { // field return type
-    User: NexusGenRootTypes['User'] | null; // User
-    users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
+    Users: Array<NexusGenRootTypes['Users'] | null> | null; // [Users]
   }
-  User: { // field return type
-    email: string | null; // String
+  Users: { // field return type
+    AuthId: string | null; // String
+    Id: string | null; // ID
     id: string; // ID!
-    name: string | null; // String
-    phoneNumber: string | null; // String
-    status: string | null; // String
   }
   Node: { // field return type
     id: string; // ID!
@@ -63,15 +60,12 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenFieldTypeNames {
   Query: { // field return type name
-    User: 'User'
-    users: 'User'
+    Users: 'Users'
   }
-  User: { // field return type name
-    email: 'String'
+  Users: { // field return type name
+    AuthId: 'String'
+    Id: 'ID'
     id: 'ID'
-    name: 'String'
-    phoneNumber: 'String'
-    status: 'String'
   }
   Node: { // field return type name
     id: 'ID'
@@ -79,23 +73,14 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
-  Query: {
-    User: { // args
-      name?: string | null; // String
-      status?: NexusGenEnums['StatusEnum'] | null; // StatusEnum
-    }
-    users: { // args
-      ids?: Array<number | null> | null; // [Int]
-    }
-  }
 }
 
 export interface NexusGenAbstractTypeMembers {
-  Node: "User"
+  Node: "Users"
 }
 
 export interface NexusGenTypeInterfaces {
-  User: "Node"
+  Users: "Node"
 }
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
