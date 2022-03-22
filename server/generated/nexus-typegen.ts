@@ -3,8 +3,8 @@
  * Do not make changes to this file directly
  */
 
-import type * as PrismaClient from ".prisma/client"
-import type { Context } from "./../graphql/context"
+
+import type { Context } from "./../api/context"
 
 
 
@@ -17,7 +17,6 @@ export interface NexusGenInputs {
 }
 
 export interface NexusGenEnums {
-  StatusEnum: "ACTIVE" | "INACTIVE"
 }
 
 export interface NexusGenScalars {
@@ -30,44 +29,35 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Query: {};
-  Users: PrismaClient.Users;
+  user: { // root type
+    id?: string | null; // ID
+  }
 }
 
 export interface NexusGenInterfaces {
-  Node: NexusGenRootTypes['Users'];
 }
 
 export interface NexusGenUnions {
 }
 
-export type NexusGenRootTypes = NexusGenInterfaces & NexusGenObjects
+export type NexusGenRootTypes = NexusGenObjects
 
-export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars & NexusGenEnums
+export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
   Query: { // field return type
-    Users: Array<NexusGenRootTypes['Users'] | null> | null; // [Users]
+    Users: string | null; // String
   }
-  Users: { // field return type
-    AuthId: string | null; // String
-    Id: string | null; // ID
-    id: string; // ID!
-  }
-  Node: { // field return type
-    id: string; // ID!
+  user: { // field return type
+    id: string | null; // ID
   }
 }
 
 export interface NexusGenFieldTypeNames {
   Query: { // field return type name
-    Users: 'Users'
+    Users: 'String'
   }
-  Users: { // field return type name
-    AuthId: 'String'
-    Id: 'ID'
-    id: 'ID'
-  }
-  Node: { // field return type name
+  user: { // field return type name
     id: 'ID'
   }
 }
@@ -76,20 +66,18 @@ export interface NexusGenArgTypes {
 }
 
 export interface NexusGenAbstractTypeMembers {
-  Node: "Users"
 }
 
 export interface NexusGenTypeInterfaces {
-  Users: "Node"
 }
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
 export type NexusGenInputNames = never;
 
-export type NexusGenEnumNames = keyof NexusGenEnums;
+export type NexusGenEnumNames = never;
 
-export type NexusGenInterfaceNames = keyof NexusGenInterfaces;
+export type NexusGenInterfaceNames = never;
 
 export type NexusGenScalarNames = keyof NexusGenScalars;
 
@@ -97,7 +85,7 @@ export type NexusGenUnionNames = never;
 
 export type NexusGenObjectsUsingAbstractStrategyIsTypeOf = never;
 
-export type NexusGenAbstractsUsingStrategyResolveType = "Node";
+export type NexusGenAbstractsUsingStrategyResolveType = never;
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {

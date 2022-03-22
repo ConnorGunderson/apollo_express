@@ -1,3 +1,3 @@
-import { startServer } from './graphql/server'
+import { startServer } from './server'
 
 startServer()
