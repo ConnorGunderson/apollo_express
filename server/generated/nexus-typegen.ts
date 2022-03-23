@@ -14,6 +14,12 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  UserInput: { // input type
+    email: string; // String!
+    name: string; // String!
+    phoneNumber?: string | null; // String
+    role?: string | null; // String
+  }
 }
 
 export interface NexusGenEnums {
@@ -28,9 +34,14 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenObjects {
+  Mutation: {};
   Query: {};
-  user: { // root type
-    id?: string | null; // ID
+  User: { // root type
+    email?: string | null; // String
+    id?: number | null; // Int
+    name?: string | null; // String
+    phoneNumber?: string | null; // String
+    role?: string | null; // String
   }
 }
 
@@ -45,24 +56,59 @@ export type NexusGenRootTypes = NexusGenObjects
 export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 
 export interface NexusGenFieldTypes {
-  Query: { // field return type
-    Users: string | null; // String
+  Mutation: { // field return type
+    createUser: NexusGenRootTypes['User'] | null; // User
+    updateUser: NexusGenRootTypes['User'] | null; // User
   }
-  user: { // field return type
-    id: string | null; // ID
+  Query: { // field return type
+    user: NexusGenRootTypes['User'] | null; // User
+    users: Array<NexusGenRootTypes['User'] | null> | null; // [User]
+  }
+  User: { // field return type
+    email: string | null; // String
+    id: number | null; // Int
+    name: string | null; // String
+    phoneNumber: string | null; // String
+    role: string | null; // String
   }
 }
 
 export interface NexusGenFieldTypeNames {
-  Query: { // field return type name
-    Users: 'String'
+  Mutation: { // field return type name
+    createUser: 'User'
+    updateUser: 'User'
   }
-  user: { // field return type name
-    id: 'ID'
+  Query: { // field return type name
+    user: 'User'
+    users: 'User'
+  }
+  User: { // field return type name
+    email: 'String'
+    id: 'Int'
+    name: 'String'
+    phoneNumber: 'String'
+    role: 'String'
   }
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    createUser: { // args
+      data: NexusGenInputs['UserInput']; // UserInput!
+    }
+    updateUser: { // args
+      data: NexusGenInputs['UserInput']; // UserInput!
+      id: number; // Int!
+    }
+  }
+  Query: {
+    user: { // args
+      id: number; // Int!
+    }
+    users: { // args
+      ids: number[]; // [Int!]!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {
@@ -73,7 +119,7 @@ export interface NexusGenTypeInterfaces {
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = keyof NexusGenInputs;
 
 export type NexusGenEnumNames = never;
 

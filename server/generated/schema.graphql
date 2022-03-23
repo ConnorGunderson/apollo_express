@@ -2,10 +2,27 @@
 ### Do not make changes to this file directly
 
 
-type Query {
-  Users: String
+type Mutation {
+  createUser(data: UserInput!): User
+  updateUser(data: UserInput!, id: Int!): User
 }
 
-type user {
-  id: ID
+type Query {
+  user(id: Int!): User
+  users(ids: [Int!]!): [User]
+}
+
+type User {
+  email: String
+  id: Int
+  name: String
+  phoneNumber: String
+  role: String
+}
+
+input UserInput {
+  email: String!
+  name: String!
+  phoneNumber: String
+  role: String
 }

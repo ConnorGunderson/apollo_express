@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
-import { authRouter } from './routes'
 import { schema } from './schema'
 import { context } from './context'
 
@@ -16,10 +14,6 @@ export const startServer = async () => {
   server.applyMiddleware({ app })
 
   app.use(express.urlencoded({ extended: true }))
-  app.use('/auth', authRouter)
-  app.get('/', (_, res) => {
-    res.redirect('/graphql')
-  })
 
   app.listen({ port: process.env.PORT }, () => {
     console.log(
