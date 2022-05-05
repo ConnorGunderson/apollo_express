@@ -1,4 +1,7 @@
 {
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
   "compilerOptions": {
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -8,6 +11,12 @@
     "outDir": "build",
     "rootDir": "."
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "apollo-express",
   "version": "1.0.0",
-  "description": "express app using nexusjs and apo",
+  "description": "express app using nexusjs and apollo",
   "main": "index.js",
   "author": "Connor Gunderson",
   "license": "MIT",
