@@ -1,16 +1,16 @@
 {
-  "sourceRoot": "apps/apollo-express-client-e2e/src",
+  "sourceRoot": "apps/client-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/apollo-express-client-e2e/cypress.json",
-        "devServerTarget": "apollo-express-client:serve:development"
+        "cypressConfig": "apps/client-e2e/cypress.json",
+        "devServerTarget": "client:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "apollo-express-client:serve:production"
+          "devServerTarget": "client:serve:production"
         }
       }
     },
@@ -18,10 +18,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/apollo-express-client-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["apollo-express-client"]
+  "implicitDependencies": ["client"]
 }

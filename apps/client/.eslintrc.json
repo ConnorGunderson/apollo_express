@@ -7,18 +7,19 @@
     "plugin:import/react",
     "plugin:tailwindcss/recommended"
   ],
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": ["!**/*", "*.js"],
   "plugins": ["tailwindcss"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": [
-          "error",
-          "apps/apollo-express-client/pages"
-        ],
+        "@next/next/no-html-link-for-pages": ["error", "apps/client/pages"],
         "react/react-in-jsx-scope": "off",
-        "react/jsx-props-no-spreading": "off"
+        "react/jsx-props-no-spreading": "off",
+        "tailwindcss/no-custom-classname": "off"
+      },
+      "parserOptions": {
+        "project": ["apps/client/tsconfig.json"]
       }
     },
     {

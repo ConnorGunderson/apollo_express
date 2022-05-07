@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "allowJs": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
@@ -11,8 +11,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "types": ["jest", "node"]
+    "target": "ES2018",
+    "types": ["jest"]
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-  "exclude": ["node_modules", "jest.config.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts",
+    "tailwind.config.js"
+  ],
+  "exclude": ["jest.config.js"]
 }

@@ -17,12 +17,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "YWI3OWY5NTEtMDc3Zi00OGM3LWE5MDItMWNhYTFjMDZhMDFhfHJlYWQtd3JpdGU="
       }
     }
@@ -48,5 +43,5 @@
       }
     }
   },
-  "defaultProject": "apollo-express-client"
+  "defaultProject": "client"
 }

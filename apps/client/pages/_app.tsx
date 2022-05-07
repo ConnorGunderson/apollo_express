@@ -1,16 +1,18 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import './styles.css'
+import { Layout } from '../components/Layout/Layout'
+import '../styles/globals.css'
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to apollo-express-client!</title>
+        <title>Welcome to client!</title>
       </Head>
-      <main className="app">
+      <Layout>
         <Component {...pageProps} />
-      </main>
+      </Layout>
     </>
   )
 }

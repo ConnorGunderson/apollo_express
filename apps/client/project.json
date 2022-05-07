@@ -1,5 +1,5 @@
 {
-  "sourceRoot": "apps/apollo-express-client",
+  "sourceRoot": "apps/client",
   "projectType": "application",
   "targets": {
     "build": {
@@ -7,8 +7,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/apollo-express-client",
-        "outputPath": "dist/apps/apollo-express-client"
+        "root": "apps/client",
+        "outputPath": "dist/apps/client"
       },
       "configurations": {
         "development": {},
@@ -19,16 +19,17 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "apollo-express-client:build",
-        "dev": true
+        "buildTarget": "client:build",
+        "dev": true,
+        "port": 4000
       },
       "configurations": {
         "development": {
-          "buildTarget": "apollo-express-client:build:development",
+          "buildTarget": "client:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "apollo-express-client:build:production",
+          "buildTarget": "client:build:production",
           "dev": false
         }
       }
@@ -36,14 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "apollo-express-client:build:production"
+        "buildTarget": "client:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/apollo-express-client"],
+      "outputs": ["coverage/apps/client"],
       "options": {
-        "jestConfig": "apps/apollo-express-client/jest.config.ts",
+        "jestConfig": "apps/client/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -51,7 +52,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/apollo-express-client/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/client/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

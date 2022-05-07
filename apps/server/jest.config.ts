@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'apollo-express-server',
+  displayName: 'server',
   preset: '../../jest.preset.ts',
   globals: {
     'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/apps/apollo-express-server',
+  coverageDirectory: '../../coverage/apps/server',
 }
