@@ -1,7 +1,7 @@
 import { ApolloProvider } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { useAuth0 } from '@auth0/auth0-react'
-import { createApolloClient, expressClient } from '../lib/apollo'
+import { createApolloClient } from '../lib/apollo'
 
 interface AuthApolloProviderProps {
   children: React.ReactNode
@@ -25,5 +25,5 @@ export function AuthApolloProvider({ children }: AuthApolloProviderProps) {
 
   const client = createApolloClient(authMiddleware)
 
-  return <ApolloProvider client={expressClient}>{children}</ApolloProvider>
+  return <ApolloProvider client={client}>{children}</ApolloProvider>
 }

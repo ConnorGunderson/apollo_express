@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "name": "string",
+  "class": "string",
+  "gameMode": "string",
+  "abilities": [
+    {
+      "id": 2,
+      "name": "string",
+      "levelReq": 1,
+      "cooldown": 1,
+      "damage": [{ "type": "string", "amount": "string" }],
+      "effects": [{ "type": "string", "duration": 1, "chance": 25 }],
+      "chance": 25
+    }
+  ],
+  "attributes": {
+    "strength": 1,
+    "dexterity": 1,
+    "intelligence": 1
+  },
+  "globalStats": {}
+}
