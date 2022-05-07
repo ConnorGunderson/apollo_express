@@ -13,7 +13,8 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strict": true
   },
   "exclude": ["node_modules", "tmp", "tailwind.config.js", ".env.cmdrc"]
 }

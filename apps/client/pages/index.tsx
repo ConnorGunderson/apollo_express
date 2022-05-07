@@ -1,3 +1,5 @@
+import { useAuth0 } from '@auth0/auth0-react'
+
 export function Index() {
   return (
     <div className="flex-1 bg-blue-200 h-100%">

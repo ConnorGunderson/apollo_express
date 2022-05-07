@@ -37,7 +37,10 @@
           },
           {
             "selector": "variable",
-            "format": ["strictCamelCase", "UPPER_CASE"]
+            "format": ["strictCamelCase", "UPPER_CASE", ""],
+            "custom": {
+              "regex": "/^_$/g"
+            }
           },
           {
             "selector": "function",
@@ -57,7 +60,8 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "no-void": "off"
       }
     },
     {
