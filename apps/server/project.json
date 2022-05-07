@@ -1,5 +1,5 @@
 {
-  "sourceRoot": "apps/server/src",
+  "sourceRoot": "apps/server",
   "projectType": "application",
   "targets": {
     "build": {
@@ -10,15 +10,14 @@
         "main": "apps/server/src/main.ts",
         "tsConfig": "apps/server/tsconfig.app.json",
         "assets": ["apps/server/src/assets"]
-      },
-      "watch": true
+      }
     },
-    "start": {
+    "serve": {
       "executor": "@nrwl/node:node",
       "options": {
-        "buildTarget": "server:start",
-        "port": 4000,
-        "watch": true
+        "buildTarget": "server:build",
+        "port": 3000,
+        "watch": false
       }
     },
     "lint": {

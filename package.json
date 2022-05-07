@@ -6,8 +6,12 @@
   "private": true,
   "scripts": {
     "client:build": "nx run client:build --prod",
-    "client:prod": "nx run client:serve:production --prod NODE_ENV=production",
-    "client:dev": "nx run client:serve:development NODE_ENV=development"
+    "client:start": "nx run client:serve:production --prod NODE_ENV=production",
+    "client:dev": "nx run client:serve:development NODE_ENV=development",
+    "server:build": "nx run server:build ",
+    "server:start": "nx run server:serve ",
+    "server:dev": "ts-node-dev --transpile-only --no-notify apps/server/api/index.ts",
+    "server:generate": "prisma generate --schema=./apps/server/prisma/schema.prisma"
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",
@@ -78,7 +82,6 @@
     "typescript": "^4.6.2"
   },
   "prisma": {
-    "seed": "ts-node prisma/seeding/main.ts"
-  },
-  "main": "index.js"
+    "seed": "ts-node apps/server/prisma/seeding/main.ts"
+  }
 }
