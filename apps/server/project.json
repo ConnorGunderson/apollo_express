@@ -3,21 +3,43 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/server",
-        "main": "apps/server/src/main.ts",
-        "tsConfig": "apps/server/tsconfig.app.json",
-        "assets": ["apps/server/src/assets"]
+        "main": "apps/server/api/main.ts",
+        "tsConfig": "apps/server/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/server/src/environments/environment.ts",
+              "with": "apps/server/src/environments/environment.prod.ts"
+            }
+          ]
+        }
       }
     },
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "server:build",
-        "port": 3000,
-        "watch": false
+        "port": 3001,
+        "watch": false,
+        "args": ["PORT=3001"]
+      },
+      "configurations": {
+        "production": {
+          "inspect": false
+        },
+        "development": {
+          "inspect": true,
+          "watch": true
+        }
       }
     },
     "lint": {

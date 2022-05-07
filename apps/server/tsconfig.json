@@ -2,15 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "files": [],
   "include": [],
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "target": "ESNext",
-    "module": "commonjs",
-    "strict": true,
-    "outDir": "build",
-    "rootDir": "."
-  },
   "references": [
     {
       "path": "./tsconfig.app.json"

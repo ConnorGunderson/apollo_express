@@ -1,16 +1,6 @@
 {
   "extends": ["../../.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
-  "compilerOptions": {
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "target": "es2018",
-    "module": "commonjs",
-    "strict": true,
-    "outDir": "build",
-    "rootDir": "."
-  },
-  "include": ["**/*.ts"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
