@@ -16,7 +16,8 @@
         "@next/next/no-html-link-for-pages": ["error", "apps/client/pages"],
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
-        "tailwindcss/no-custom-classname": "off"
+        "tailwindcss/no-custom-classname": "off",
+        "@typescript-eslint/no-non-null-assertion": "off"
       },
       "parserOptions": {
         "project": ["apps/client/tsconfig.json"]

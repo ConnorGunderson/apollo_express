@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "client:build": "nx run client:build --prod",
-    "client:prod": "env-cmd -e production -r ./apps/client/.env-cmdrc nx run client:serve:production --prod",
-    "client:dev": "env-cmd -e development -r ./apps/client/.env-cmdrc nx run client:serve:development"
+    "client:prod": "nx run client:serve:production --prod NODE_ENV=production",
+    "client:dev": "nx run client:serve:development NODE_ENV=development"
   },
   "dependencies": {
     "@apollo/client": "^3.6.2",

@@ -13,7 +13,11 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "strict": true,
+    "paths": {
+      "@apollo-express/game-data": ["libs/game-data/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp", "tailwind.config.js", ".env.cmdrc"]
 }

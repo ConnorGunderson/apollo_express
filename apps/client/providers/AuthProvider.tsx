@@ -1,15 +1,21 @@
-import { Auth0Provider } from '@auth0/auth0-react'
+import { AppState, Auth0Provider } from '@auth0/auth0-react'
+import Router from 'next/router'
 
 interface AuthProviderProps {
   children: React.ReactNode
 }
 
+const onRedirectCallback = (appState?: AppState) => {
+  Router.replace(appState?.returnTo || '/')
+}
+
 export function AuthProvider({ children }: AuthProviderProps) {
   return (
     <Auth0Provider
-      domain={process.env.AUTH0_DOMAIN}
-      clientId={process.env.AUTH0_CLIENTID}
-      audience={process.env.AUTH0_AUDIENCE}
+      domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN!}
+      clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENTID!}
+      redirectUri="http://localhost:4000"
+      onRedirectCallback={onRedirectCallback}
     >
       {children}
     </Auth0Provider>
