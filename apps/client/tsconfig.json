@@ -12,7 +12,10 @@
     "isolatedModules": true,
     "incremental": true,
     "target": "ES2018",
-    "types": ["jest"]
+    "types": ["jest"],
+    "paths": {
+      "@apollo-express/components": ["libs/shared-components/src/index.ts"]
+    }
   },
   "include": [
     "**/*.ts",

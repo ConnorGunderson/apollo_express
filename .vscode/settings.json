@@ -18,6 +18,7 @@
     "nrwl",
     "semibold",
     "svgr",
-    "tailwindcss"
+    "tailwindcss",
+    "typegen"
   ]
 }
