@@ -16,6 +16,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENTID!}
       redirectUri="http://localhost:4000"
       onRedirectCallback={onRedirectCallback}
+      audience={process.env.NEXT_PUBLIC_AUTH0_AUDIENCE}
     >
       {children}
     </Auth0Provider>

@@ -1,0 +1,9 @@
+query Users($ids: [Int!]) {
+  users(ids: $ids) {
+    id
+    email
+    name
+    role
+    phoneNumber
+  }
+}

@@ -6,7 +6,7 @@ import {
 } from '@apollo/client'
 
 const httpLink = new HttpLink({
-  uri: process.env.EXPRESS_API_URI,
+  uri: process.env.NEXT_PUBLIC_EXPRESS_API_URI,
   credentials: 'include',
 })
 

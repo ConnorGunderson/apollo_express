@@ -1,0 +1,37 @@
+schema:
+  - http://localhost:3000/graphql
+documents: 'apps/client/**/*.graphql'
+config:
+  # Generates enum as TypeScript type instead of enum.
+  enumsAsTypes: true
+  # Include undefined in InputMaybe because all of our input types are partial since they are
+  # shared by both update and create mutations.
+  # Prevent codegen from adding ? operators to nullable queried fields where not necessary.
+  avoidOptionals:
+    field: true
+  # Custom scalar map for our backend types that are not part of the graphql spec.
+  scalars:
+    Date: string
+    DateTime: string
+    Decimal: number
+    Seconds: number
+    Long: number
+  # Create separate types for fragments instead of the default of inlining them in the queries
+  # and mutations where they are used. This is useful for writing functions that work with
+  # a common generated fragment type rather than one specific query or mutation that consumes it.
+generates:
+  apps/client/lib/schema/generated.tsx: ## designated file output
+    config:
+      # Does not add __typename to the generated types, unless it was specified in the selection set.
+      skipTypename: true
+    plugins:
+      # support for typescript and apollo
+      - typescript
+      - typescript-operations
+      # Generates an introspection result with only Unions and Interfaces
+      - fragment-matcher
+      # Creates a typed document for use in queries that provide types to the rest of the application
+      - typed-document-node
+      # This plugin generates an object containing a list of all your GraphQL operations and fragments.
+      # This is useful if you are using Apollo-Client and wish to have type validation when you are using refetchQueries.
+      - named-operations-object
