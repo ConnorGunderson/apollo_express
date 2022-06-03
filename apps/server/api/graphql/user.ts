@@ -42,8 +42,11 @@ export const UserQueries = queryType({
     })
     t.field('users', {
       type: list(User),
-      args: { ids: nonNull(list(nonNull(intArg()))) },
+      args: { ids: list(nonNull(intArg())) },
       resolve(_, { ids }, ctx) {
+        if (!ids.length) {
+          return ctx.prisma.user.findMany()
+        }
         return ctx.prisma.user.findMany({ where: { id: { in: ids } } })
       },
     })
